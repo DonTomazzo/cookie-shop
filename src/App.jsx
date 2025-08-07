@@ -29,7 +29,10 @@ function App() {
   { id: 3, name: 'Tripple Berry', price: 30, description: 'En stor och saftig kanelbulle.', image: '/images/collection3.jpg' }, // KORREKT
   { id: 4, name: 'Prenumerera', price: 22, description: 'Grön marsipanrulle med chokladdopp.', image: '/images/collection.jpg' },
   { id: 5, name: 'Prenumerera 2', price: 18, description: 'En knäckig och smörig kaka.', image: '/images/collection4.jpg' },
-  { id: 6, name: 'Smulmuffins', price: 28, description: 'Muffins med smak av sommar.', image: '/images/smulmuffins.jpg' },
+  { id: 6, name: 'Överraska på mammas dag', price: 28, description: 'Muffins med smak av sommar.', image: '/images/collection6.jpg' },
+  { id: 4, name: 'Prenumerera', price: 22, description: 'Grön marsipanrulle med chokladdopp.', image: '/images/collection.jpg' },
+  { id: 5, name: 'Prenumerera 2', price: 18, description: 'En knäckig och smörig kaka.', image: '/images/collection4.jpg' },
+  { id: 6, name: 'Överraska på mammas dag', price: 28, description: 'Muffins med smak av sommar.', image: '/images/collection6.jpg' },
 ];
 
   // Här är alla dina useEffect-hooks, samlade på en plats

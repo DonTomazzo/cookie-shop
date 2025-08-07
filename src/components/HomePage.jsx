@@ -7,32 +7,34 @@ function HomePage({ onAddToCart, onFlyToCart }) {
   const products = [
     { 
       id: 1, 
-      name: 'Chokladkaka', 
-      description: 'En rik och fyllig chokladkaka med mörk choklad.', 
+      name: 'Erbjudande Mammas dag', 
+      description: 'En hel kartong med kärlek.', 
       price: 25, 
-      image: '/images/chokladkaka.jpg' 
+      image: '/images/collection6.jpg' 
     },
     { 
       id: 2, 
-      name: 'Kanelbulle', 
-      description: 'En klassisk svensk kanelbulle med pärlsocker.', 
+      name: 'Prenumerera', 
+      description: 'Godsaker varje månad.', 
       price: 18, 
-      image: '/images/kanelbulle.jpg' 
+      image: '/images/collection4.jpg' 
     },
     { 
       id: 3, 
-      name: 'Wienerbröd', 
-      description: 'Spröda wienerbröd med vaniljkräm.', 
+      name: 'Företagspaket', 
+      description: 'Höj trivseln med socker.', 
       price: 22, 
-      image: '/images/wienerbrod.jpg' 
+      image: '/images/collection6.jpg' 
     },
     // Lägg till fler produkter här
   ];
 
   return (
     <div>
-      <h2>Välkommen till The Bakery Shop!</h2>
-      <p>Detta är startsidan.</p>
+      <div className="homepage-greeting">
+    <h2>Välkommen till The Bakery Shop!</h2>
+    <p>Detta är startsidan.</p>
+    </div>
       
       {/* Här är din produktgrid som använder ProductCard direkt */}
       <div className="product-grid">
