@@ -39,6 +39,7 @@ function Footer() {
 <div className="footer-column">
   <h4 style={{ color: pinkColor }}>Besök vår Macaronfabrik</h4>
   <iframe
+    title="Karta över Macaronfabriken"
     width="100%"
     height="200"
     frameBorder="0"     // Ändrad från 'frameborder' till 'frameBorder'

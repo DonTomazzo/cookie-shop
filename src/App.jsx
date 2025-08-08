@@ -91,9 +91,7 @@ function App() {
 
     if (cartIconRef.current) {
       const cartRect = cartIconRef.current.getBoundingClientRect();
-      const endX = cartRect.x + cartRect.width / 2;
-      const endY = cartRect.y + cartRect.height / 2;
-
+      
       setTimeout(() => {
         setFlyingProducts((prev) => prev.filter((p) => p.id !== flyingId));
       }, 700);
