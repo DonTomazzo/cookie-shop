@@ -2,10 +2,11 @@
 import React from 'react';
 import { FaShoppingCart, FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import RainingMacarons from './RainingMacarons';
 
 function Header({ onToggleMenu, cartItemCount, onToggleCart, cartIconRef }) {
   // Ändra sökvägen här!
-  const logoSrc = '/images/logo.jpg'; 
+  const logoSrc = '/images/logo.png'; 
 
   return (
     <header className="app-header">
@@ -13,6 +14,8 @@ function Header({ onToggleMenu, cartItemCount, onToggleCart, cartIconRef }) {
         <button className="hamburger-icon" onClick={onToggleMenu}>
           <FaBars />
         </button>
+
+         <RainingMacarons />
       </div>
       <div className="header-logo">
         <Link to="/">

@@ -676,3 +676,42 @@ body {
   font-weight: bold;
   
 }
+
+.cart-indicator {
+    color: #b73083;
+}
+
+/* Animation för regnande macarons */
+@keyframes macaron-fall {
+  0% {
+    top: -10%;
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(10px) rotate(15deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(-20px) rotate(-30deg);
+    opacity: 0;
+  }
+}
+
+
+.rubrik-tillverkningsprocess {
+  /* Här lägger du till dina CSS-regler, t.ex. */
+  color: #61981;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Stil för varje fallande macaron */
+.raining-macaron {
+  position: absolute;
+  font-size: 2.5em; /* Justera storleken här */
+  color: #ffb7d5; /* En rosa färg. Välj den du vill ha. */
+  animation-name: macaron-fall;
+  animation-iteration-count: infinite;
+  z-index: -1; /* Se till att de ligger under menyns innehåll */
+  pointer-events: none; /* De ska inte gå att klicka på */
+}

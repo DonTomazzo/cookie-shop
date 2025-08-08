@@ -12,7 +12,7 @@ function AboutPage() {
           
           <p>Efter år av experimenterande med mandelmjöl, maräng och magi, föddes Munamii Bakery i sin nya form – som renodlad macaronleverantör. Idag skapar Munamii eleganta, smakrika macarons med en nordisk själ och ett franskt hjärta. Allt är handgjort i små batcher med fokus på smakbalans, textur och visuell poesi.</p>
           
-          <h3>Tillverkningsprocessen – med precision och passion</h3>
+         <h3 class="rubrik-tillverkningsprocess">Tillverkningsprocessen med precision och passion</h3>
           
           <p>Munamiis macarons bakas med noggrant utvalda råvaror:
           – ekologiskt mandelmjöl,
