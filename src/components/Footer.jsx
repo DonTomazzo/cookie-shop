@@ -1,7 +1,7 @@
 // src/components/Footer.jsx
 import React from 'react';
 // src/components/Footer.jsx
-import { FaFacebook, FaInstagram, FaLinkedinIn } from 'react-icons/fa'; /
+import { FaFacebook, FaInstagram, FaLinkedinIn } from 'react-icons/fa'; 
 import { Link } from 'react-router-dom';
 import './Footer.css'; // Kontrollera att sökvägen är korrekt
 import NewsletterForm from '../components/NewsletterForm';
