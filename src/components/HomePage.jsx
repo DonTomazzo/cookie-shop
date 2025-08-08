@@ -44,7 +44,7 @@ function HomePage({ onAddToCart, onFlyToCart }) {
     </div>
       
       {/* Här är din produktgrid som använder ProductCard direkt */}
-      <div className="product-grid">
+      <div className="products-grid">
         {products.map(product => (
           <ProductCard 
             key={product.id} 

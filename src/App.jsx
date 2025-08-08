@@ -24,14 +24,14 @@ function App() {
 
   
  const products = [
-  { id: 1, name: 'Lemon-lime', price: 25, description: 'En klassisk chokladkaka med rik smak.', image: '/images/collection1.jpg' },
-  { id: 2, name: 'Björnbär', price: 20, description: 'Mördegskaka med hallonsylt.', image: '/images/collection2.jpg' }, // KORREKT
-  { id: 3, name: 'Tripple Berry', price: 30, description: 'En stor och saftig kanelbulle.', image: '/images/collection3.jpg' }, // KORREKT
-  { id: 4, name: 'Prenumerera', price: 22, description: 'Grön marsipanrulle med chokladdopp.', image: '/images/collection.jpg' },
-  { id: 5, name: 'Prenumerera 2', price: 18, description: 'En knäckig och smörig kaka.', image: '/images/collection4.jpg' },
-  { id: 6, name: 'Överraska på mammas dag', price: 28, description: 'Muffins med smak av sommar.', image: '/images/collection6.jpg' },
-  { id: 4, name: 'Prenumerera', price: 22, description: 'Grön marsipanrulle med chokladdopp.', image: '/images/collection.jpg' },
-  { id: 5, name: 'Prenumerera 2', price: 18, description: 'En knäckig och smörig kaka.', image: '/images/collection4.jpg' },
+  { id: 1, name: 'Lemon-lime', price: 25, description: 'En klassisk macaron med rik smak.', image: '/images/collection1.jpg' },
+  { id: 2, name: 'Björnbär', price: 20, description: 'Passar som efterrätt.', image: '/images/collection2.jpg' }, // KORREKT
+  { id: 3, name: 'Tripple Berry', price: 30, description: 'Tre smaker i en.', image: '/images/collection3.jpg' }, // KORREKT
+  { id: 4, name: 'Prenumerera', price: 22, description: 'Missa aldrig en macaron.', image: '/images/collection.jpg' },
+  { id: 5, name: 'Prenumerera 2', price: 18, description: 'En låda som räcker hela veckan.', image: '/images/collection4.jpg' },
+  { id: 6, name: 'Överraska på mammas dag', price: 28, description: 'Uppvakta med macarons', image: '/images/collection6.jpg' },
+  { id: 4, name: 'Prenumerera', price: 22, description: 'Vår populära tjänst.', image: '/images/collection.jpg' },
+  { id: 5, name: 'Prenumerera 2', price: 18, description: 'XXL låda för hela familjen', image: '/images/collection4.jpg' },
   { id: 6, name: 'Överraska på mammas dag', price: 28, description: 'Muffins med smak av sommar.', image: '/images/collection6.jpg' },
 ];
 
@@ -111,7 +111,7 @@ function App() {
                 &times;
               </button>
               <video className="popup-video" autoPlay muted loop playsInline>
-                <source src="/videos/LE-MACARON2.mp4" type="video/mp4" />
+                <source src="/videos/mac.mp4" type="video/mp4" />
                 Din webbläsare stöder inte video.
               </video>
             </div>
