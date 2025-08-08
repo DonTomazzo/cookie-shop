@@ -1,7 +1,7 @@
 // src/App.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { FaTimes } from 'react-icons/fa'; // Importera FaTimes för stäng-knappen
+import { FaTimes } from 'react-icons/fa'; 
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import ShopPage from './components/ShopPage';
@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import Cart from './components/Cart';
 
 function App() {
-  // Här är alla dina states och refs, inklusive de nya för popupen
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem('cartItems');
@@ -22,7 +22,7 @@ function App() {
   const cartIconRef = useRef(null);
   const [showVideoPopup, setShowVideoPopup] = useState(false); // NY: State för video-popup
 
-  // Här är din produktlista, som är definierad en gång
+  
  const products = [
   { id: 1, name: 'Lemon-lime', price: 25, description: 'En klassisk chokladkaka med rik smak.', image: '/images/collection1.jpg' },
   { id: 2, name: 'Björnbär', price: 20, description: 'Mördegskaka med hallonsylt.', image: '/images/collection2.jpg' }, // KORREKT
@@ -35,12 +35,12 @@ function App() {
   { id: 6, name: 'Överraska på mammas dag', price: 28, description: 'Muffins med smak av sommar.', image: '/images/collection6.jpg' },
 ];
 
-  // Här är alla dina useEffect-hooks, samlade på en plats
+  
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  useEffect(() => { // NY: useEffect för video-popup-timern
+  useEffect(() => { 
     const timer = setTimeout(() => {
       setShowVideoPopup(true);
     }, 2000);
@@ -48,7 +48,7 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Här är alla dina funktioner samlade på en plats
+ 
   const addToCart = (productToAdd) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === productToAdd.id);
@@ -83,20 +83,20 @@ function App() {
   };
 
   const handleFlyToCart = (startX, startY, imageUrl) => {
-    const flyingId = Date.now();
-    setFlyingProducts((prev) => [
-      ...prev,
-      { id: flyingId, startX, startY, imageUrl },
-    ]);
+  const flyingId = Date.now();
+  setFlyingProducts((prev) => [
+    ...prev,
+    { id: flyingId, startX, startY, imageUrl },
+  ]);
 
-    if (cartIconRef.current) {
-      const cartRect = cartIconRef.current.getBoundingClientRect();
-      
-      setTimeout(() => {
-        setFlyingProducts((prev) => prev.filter((p) => p.id !== flyingId));
-      }, 700);
-    }
-  };
+  if (cartIconRef.current) {
+    // Raden med 'cartRect' är borttagen härifrån, eftersom den var oanvänd.
+    
+    setTimeout(() => {
+      setFlyingProducts((prev) => prev.filter((p) => p.id !== flyingId));
+    }, 700);
+  }
+};
 
   const totalCartItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
