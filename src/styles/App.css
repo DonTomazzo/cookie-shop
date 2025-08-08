@@ -93,11 +93,29 @@ body {
 
 /* Cart-ikon och antal */
 .cart-indicator {
-    position: relative;
-    font-size: 1.8em;
-    color: #555;
-    cursor: pointer;
+  position: relative;
+  font-size: 2.5em;    /* Gjord större från 1.8em */
+  color: #c41981;
+  cursor: pointer;
+  margin-right: 20px; /* Lägger till ett mellanrum på 20px till höger */
 }
+
+.our-story-heading {
+  color: #c41981; /* Sätt färgen till lila/rosa som matchar ditt tema */
+  font-size: 3em; /* Gör rubriken större */
+  font-family: 'Reenie Beenie', cursive; /* (Valfritt) Använd Reenie Beenie här */
+  text-align: center; /* (Valfritt) Centrera rubriken */
+  margin-bottom: 20px; /* (Valfritt) Lägg till lite utrymme under rubriken */
+}
+
+.manufacturing-process-heading {
+  color: #c41981;
+  font-size: 3em;
+  font-family: 'Reenie Beenie', cursive;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 
 .cart-count {
     background-color: #007bff;
@@ -673,7 +691,8 @@ body {
 .homepage-greeting h2,
 .homepage-greeting p {
   color: white;
-  font-weight: bold;
+  font-size: 35px;
+  font-family: 'Reenie Beenie', cursive !important;
   
 }
 
@@ -697,12 +716,16 @@ body {
   }
 }
 
+.product-grid {
+    spacing: 25 px;
+}
 
 .rubrik-tillverkningsprocess {
   /* Här lägger du till dina CSS-regler, t.ex. */
-  color: #61981;
+  color: #c61981; 
   font-family: Arial, sans-serif;
   text-align: center;
+  font-family: 'Reenie Beenie', cursive !important;
 }
 
 /* Stil för varje fallande macaron */
@@ -714,4 +737,10 @@ body {
   animation-iteration-count: infinite;
   z-index: -1; /* Se till att de ligger under menyns innehåll */
   pointer-events: none; /* De ska inte gå att klicka på */
+}
+
+.h1-h6 {
+  color: #c61981;
+  text-align: center;
+  font-family: 'Reenie Beenie', cursive; /* Endast en font-family-deklaration */
 }

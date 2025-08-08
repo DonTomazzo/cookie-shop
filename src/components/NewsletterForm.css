@@ -1,0 +1,15 @@
+/* src/components/NewsletterForm.css */
+
+.newsletter-form-container {
+    background-color: #f7f3f0; /* En unik färg för nyhetsbrevet */
+    border-radius: 15px;
+    padding: 0px;
+    max-width: 600px;
+    /* ... andra stilar ... */
+}
+
+.newsletter-title {
+    color: #e66a9f; /* En unik färg för rubriken */
+    /* ... andra stilar ... */
+}
+/* ... fortsätt för alla dina nya klasser ... */

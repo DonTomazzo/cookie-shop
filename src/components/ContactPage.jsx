@@ -45,7 +45,7 @@ function ContactPage() {
                 <div className="icon-container mx-auto mb-3">
                   <FaCookieBite className="main-icon" />
 </div>
-                <h1 className="contact-title mb-3">Kontakta oss</h1>
+                <h1 className="contact-title mb-3">Lägg en beställning</h1>
                 <p className="contact-subtitle mb-0">Vi ser fram emot att höra från dig!</p>
               </div>
 

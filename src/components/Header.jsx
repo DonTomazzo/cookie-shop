@@ -22,7 +22,7 @@ function Header({ onToggleMenu, cartItemCount, onToggleCart, cartIconRef }) {
           <img src={logoSrc} alt="The Bakery Shop Logo" className="logo" />
         </Link>
         <span className="slogan">
-  Nu byter vi namn. Munamii Bakery blir <span className="slogan-highlight">Le Macaron!</span>
+  Nu byter vi snart namn. Munamii Bakery blir <span className="slogan-highlight">Le Macaron!</span>
 </span>
       </div>
       <div className="header-right">

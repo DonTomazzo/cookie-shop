@@ -6,6 +6,7 @@ function AboutPage() {
       <section className="our-story-section">
         {/* Här är all text samlad i en korrekt behållare */}
         <div className="our-story-text-container">
+          <h2 className="our-story-heading">Vår story</h2>
           <p>Det började med en visp, en vision – och en vansinnigt god cupcake. På ett litet kök i Malmö bakade Munamii sina första skapelser och delade dem på Instagram. Med färgglada frostingvirvlar och kärlek i varje smet blev hennes cupcakes snabbt ett namn bland fikafantaster och brudpar på jakt efter den perfekta bröllopstårtan.</p>
           
           <p>Men passionen för det perfekta lilla bakverket tog en ny riktning – mot den franska klassikern: macaronen.</p>
@@ -26,7 +27,7 @@ function AboutPage() {
       </section>
 
       <section className="about-page-video-section">
-        <h2>Vår tillverkningsprocess</h2>
+        <h2 className="manufacturing-process-heading">Vår tillverkningsprocess</h2>
         <div className="about-page-video-container">
           <video className="about-page-video" controls>
             <source src="/videos/making.mp4" type="video/mp4" />

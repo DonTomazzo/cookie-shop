@@ -26,6 +26,13 @@ function HomePage({ onAddToCart, onFlyToCart }) {
       price: 22, 
       image: '/images/collection6.jpg' 
     },
+       { 
+      id: 4, 
+      name: 'Bröllop?', 
+      description: 'Varför inte beställa vår Macarontårta.', 
+      price: 22, 
+      image: '/images/collection7.jpg' 
+    },
     // Lägg till fler produkter här
   ];
 
@@ -33,7 +40,7 @@ function HomePage({ onAddToCart, onFlyToCart }) {
     <div>
       <div className="homepage-greeting">
     <h2>Välkommen till The Bakery Shop!</h2>
-    <p>Detta är startsidan.</p>
+    
     </div>
       
       {/* Här är din produktgrid som använder ProductCard direkt */}
