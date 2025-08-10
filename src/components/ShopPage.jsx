@@ -1,18 +1,20 @@
 // src/components/ShopPage.jsx
 import React from 'react';
-import ProductCard from './ProductCard'; // Se till att sökvägen är rätt
+import ProductCard from './ProductCard';
 
-function ShopPage({ products, onAddToCart }) {
+// Ändra här: Lägg till onFlyToCart som en prop
+function ShopPage({ products, onAddToCart, onFlyToCart }) { 
   return (
     <div className="shop-page">
-      <h2>Våra Ljuvliga Kakor</h2>
-      {/* HÄR MÅSTE PRODUCTS-GRID VARA RUNT DINA PRODUKTER */}
+      <h2>Våra bakverk</h2>
       <section className="products-grid">
         {products.map(product => (
           <ProductCard
             key={product.id}
             product={product}
             onAddToCart={onAddToCart}
+            // Ändra här: Skicka onFlyToCart vidare till ProductCard
+            onFlyToCart={onFlyToCart} 
           />
         ))}
       </section>

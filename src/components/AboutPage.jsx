@@ -5,7 +5,7 @@ function AboutPage() {
     <div className="about-page">
       <section className="our-story-section">
         {/* Här är all text samlad i en korrekt behållare */}
-        <div className="our-story-text-container">
+        <div className="our-story-text-container container">
           <h2 className="our-story-heading">Vår story</h2>
           <p>Det började med en visp, en vision – och en vansinnigt god cupcake. På ett litet kök i Malmö bakade Munamii sina första skapelser och delade dem på Instagram. Med färgglada frostingvirvlar och kärlek i varje smet blev hennes cupcakes snabbt ett namn bland fikafantaster och brudpar på jakt efter den perfekta bröllopstårtan.</p>
           

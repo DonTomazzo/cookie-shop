@@ -10,6 +10,7 @@
 
 .newsletter-title {
     color: #e66a9f; /* En unik färg för rubriken */
+    font-size: 12px;
     /* ... andra stilar ... */
 }
 /* ... fortsätt för alla dina nya klasser ... */

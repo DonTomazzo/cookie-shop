@@ -10,8 +10,39 @@ import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 
+// Ny komponent för att hantera de flygande bilderna
+const FlyingProduct = ({ startX, startY, imageUrl, cartRect, onAnimationEnd }) => {
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    // Starta animationen efter en kort fördröjning för att React ska hinna rendera startpositionen.
+    const timer = setTimeout(() => {
+      setIsAnimating(true);
+    }, 10);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <img
+      src={imageUrl}
+      alt="flygande produkt"
+      className="flying-product"
+      onTransitionEnd={onAnimationEnd}
+      style={{
+        left: startX,
+        top: startY,
+        transform: isAnimating
+          ? `translate(${cartRect.x - startX}px, ${cartRect.y - startY}px) scale(0.1)`
+          : 'translate(0, 0) scale(1)',
+        opacity: isAnimating ? 0 : 1,
+      }}
+    />
+  );
+};
+
+
 function App() {
-  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem('cartItems');
@@ -20,22 +51,19 @@ function App() {
   const [showCart, setShowCart] = useState(false);
   const [flyingProducts, setFlyingProducts] = useState([]);
   const cartIconRef = useRef(null);
-  const [showVideoPopup, setShowVideoPopup] = useState(false); // NY: State för video-popup
+  const [showVideoPopup, setShowVideoPopup] = useState(false);
+  // NYTT: State för puls-effekt på varukorgen
+  const [isCartPulsing, setIsCartPulsing] = useState(false); 
 
-  
- const products = [
-  { id: 1, name: 'Lemon-lime', price: 25, description: 'En klassisk macaron med rik smak.', image: '/images/collection1.jpg' },
-  { id: 2, name: 'Björnbär', price: 20, description: 'Passar som efterrätt.', image: '/images/collection2.jpg' }, // KORREKT
-  { id: 3, name: 'Tripple Berry', price: 30, description: 'Tre smaker i en.', image: '/images/collection3.jpg' }, // KORREKT
-  { id: 4, name: 'Prenumerera', price: 22, description: 'Missa aldrig en macaron.', image: '/images/collection.jpg' },
-  { id: 5, name: 'Prenumerera 2', price: 18, description: 'En låda som räcker hela veckan.', image: '/images/collection4.jpg' },
-  { id: 6, name: 'Överraska på mammas dag', price: 28, description: 'Uppvakta med macarons', image: '/images/collection6.jpg' },
-  { id: 4, name: 'Prenumerera', price: 22, description: 'Vår populära tjänst.', image: '/images/collection.jpg' },
-  { id: 5, name: 'Prenumerera 2', price: 18, description: 'XXL låda för hela familjen', image: '/images/collection4.jpg' },
-  { id: 6, name: 'Överraska på mammas dag', price: 28, description: 'Muffins med smak av sommar.', image: '/images/collection6.jpg' },
-];
+  const products = [
+    { id: 1, name: 'Lemon-lime', price: 25, description: 'En klassisk macaron med rik smak.', image: '/images/collection1.jpg' },
+    { id: 2, name: 'Björnbär', price: 20, description: 'Passar som efterrätt.', image: '/images/collection2.jpg' },
+    { id: 3, name: 'Tripple Berry', price: 30, description: 'Tre smaker i en.', image: '/images/collection3.jpg' },
+    { id: 4, name: 'Prenumerera', price: 22, description: 'Missa aldrig en macaron.', image: '/images/collection.jpg' },
+    { id: 5, name: 'Prenumerera 2', price: 18, description: 'En låda som räcker hela veckan.', image: '/images/collection4.jpg' },
+    { id: 6, name: 'Överraska på mammas dag', price: 28, description: 'Uppvakta med macarons', image: '/images/collection6.jpg' },
+  ];
 
-  
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
@@ -48,7 +76,6 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
- 
   const addToCart = (productToAdd) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === productToAdd.id);
@@ -81,29 +108,41 @@ function App() {
   const toggleCart = () => {
     setShowCart(!showCart);
   };
+  
+const handleFlyToCart = (startX, startY, imageUrl) => {
+  // Spela upp swoosh-ljudet här
+  try {
+    const swooshSound = new Audio('/swoosh.mp3');
+    swooshSound.play();
+  } catch (error) {
+    console.error("Kunde inte spela upp ljudet:", error);
+  }
 
-  const handleFlyToCart = (startX, startY, imageUrl) => {
   const flyingId = Date.now();
+  const cartRect = cartIconRef.current.getBoundingClientRect();
+
   setFlyingProducts((prev) => [
     ...prev,
-    { id: flyingId, startX, startY, imageUrl },
+    { id: flyingId, startX, startY, imageUrl, cartRect },
   ]);
 
-  if (cartIconRef.current) {
-    // Raden med 'cartRect' är borttagen härifrån, eftersom den var oanvänd.
-    
-    setTimeout(() => {
-      setFlyingProducts((prev) => prev.filter((p) => p.id !== flyingId));
-    }, 700);
-  }
+  // Aktivera puls-effekten när animationen startar
+  setIsCartPulsing(true);
+  // Stäng av den igen efter animationens tid (600ms + lite extra)
+  setTimeout(() => {
+    setIsCartPulsing(false);
+  }, 700);
 };
+
+  const removeFlyingProduct = (id) => {
+    setFlyingProducts((prev) => prev.filter(p => p.id !== id));
+  };
 
   const totalCartItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <Router>
       <div className="App">
-        {/* NY: Video-popup, renderas villkorligt */}
         {showVideoPopup && (
           <div className="video-popup-overlay">
             <div className="video-popup-container">
@@ -124,6 +163,8 @@ function App() {
           cartItemCount={totalCartItems}
           onToggleCart={toggleCart}
           cartIconRef={cartIconRef}
+          // NYTT: Skicka med className för puls-effekten
+          className={isCartPulsing ? 'cart-pulse' : ''} 
         />
 
         {isMenuOpen && <div className="mobile-nav-overlay" onClick={toggleMobileMenu}></div>}
@@ -165,31 +206,15 @@ function App() {
         </main>
 
         <Footer />
-
+        
         {flyingProducts.map((product) => (
-          <img
+          <FlyingProduct
             key={product.id}
-            src={product.imageUrl}
-            alt="flygande kaka"
-            className="flying-product-animation"
-            style={{
-              left: product.startX,
-              top: product.startY,
-              width: '50px',
-              height: '50px',
-              objectFit: 'cover',
-              borderRadius: '50%',
-              transform: `translate(${
-                (cartIconRef.current?.getBoundingClientRect().x || 0) +
-                (cartIconRef.current?.getBoundingClientRect().width || 0) / 2 -
-                product.startX
-              }px, ${
-                (cartIconRef.current?.getBoundingClientRect().y || 0) +
-                (cartIconRef.current?.getBoundingClientRect().height || 0) / 2 -
-                product.startY
-              }px) scale(0.1)`,
-              opacity: 0,
-            }}
+            startX={product.startX}
+            startY={product.startY}
+            imageUrl={product.imageUrl}
+            cartRect={product.cartRect}
+            onAnimationEnd={() => removeFlyingProduct(product.id)}
           />
         ))}
       </div>
